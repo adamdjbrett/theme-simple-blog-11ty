@@ -1,0 +1,17 @@
+<div class="post-details">
+  {{ if author }}
+    <p>{{ site.i18n.post.by }} <a href="{{ author |> authorUrl }}">{{ author }}</a></p>
+  {{ /if }}
+
+  <p><time datetime="{{ date |> dateFmt('DATETIME') }}">{{ date |> dateFmt('HUMAN_DATE') }}</time></p>
+
+  <p>{{ readingInfo?.minutes || 1 }} {{ site.i18n.post.reading_time }}</p>
+
+  {{ if tags?.length }}
+  <div class="post-tags">
+    {{ for tag of tags }}
+      <a class="badge" href="{{ tag |> tagUrl }}">{{ tag }}</a>
+    {{ /for }}
+  </div>
+  {{ /if }}
+</div>

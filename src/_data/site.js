@@ -1,0 +1,51 @@
+export default {
+  url: "http://localhost:8080",
+  lang: "en",
+  home: {
+    welcome: "Hello, I am a person that writes stuff."
+  },
+  menu_links: [],
+  extra_head: [],
+  metas: {
+    site: "Blog name",
+    description: "General description of the blog",
+    title: "",
+    image: "",
+    twitter: "@username",
+    lang: "en"
+  },
+  i18n: {
+    nav: {
+      toc: "Table of Contents",
+      next_post: "Newer post ->",
+      previous_post: "<- Older post",
+      continue_reading: "Continue reading ->",
+      archive_title: "Archive",
+      archive: "More posts can be found in <a href=\"/archive/\">the archive</a>.",
+      back: "<- Back",
+      page: "Page",
+      next: "Next ->",
+      previous: "<- Previous"
+    },
+    post: {
+      by: "by",
+      reading_time: "min read"
+    },
+    search: {
+      by_author: "Posts by",
+      by_tag: "Tagged",
+      tags: "Tags",
+      authors: "Authors"
+    },
+    comments: {
+      title: "Comments",
+      description:
+        "You can leave a comment by replying to <a href=\":src:\">this Mastodon post</a> from your own account on Mastodon or any other ActivityPub-capable social network that can exchange replies with Mastodon.",
+      description_bluesky:
+        "You can leave a comment by replying to <a href=\":bluesky:\">this Bluesky post</a> from your own account.",
+      description_all:
+        "You can leave a comment by replying to <a href=\":src:\">this Mastodon post</a> or <a href=\":bluesky:\">this Bluesky post</a> from your own account.",
+      empty: "No comments yet"
+    }
+  }
+};

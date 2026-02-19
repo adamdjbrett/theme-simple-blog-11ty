@@ -1,0 +1,41 @@
+---
+layout: page.vto
+title: Home
+url: /
+---
+<header class="page-header">
+  <h1 class="page-title">{{ site.home.welcome }}</h1>
+</header>
+
+<section class="postList">
+  {{ for post of collections.posts.slice(0, 3) }}
+  <article class="post">
+    <header class="post-header">
+      <h2 class="post-title">
+        <a href="{{ post.url }}" {{ if post.url == page.url }} aria-current="page"{{ /if }}>
+          {{ post.data.title || post.url }}
+        </a>
+      </h2>
+
+      {{ include "templates/post-details.vto" {
+        date: post.date,
+        tags: post.data.tags,
+        author: post.data.author,
+        readingInfo: post.data.readingInfo
+      } }}
+    </header>
+
+    <div class="post-excerpt body">
+      {{ post.data.excerpt }}
+    </div>
+
+    <a href="{{ post.url }}" class="post-link">
+      {{ site.i18n.nav.continue_reading }}
+    </a>
+  </article>
+  {{ /for }}
+</section>
+
+<hr>
+
+<p>{{ site.i18n.nav.archive }}</p>

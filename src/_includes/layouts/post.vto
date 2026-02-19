@@ -1,0 +1,52 @@
+---
+layout: base.vto
+bodyClass: body-post
+---
+<article class="post" data-pagefind-body data-title="{{ title }}" data-pagefind-index-attrs="data-title">
+  <header class="post-header">
+    <h1 class="post-title">{{ title }}</h1>
+    {{ include "templates/post-details.vto" }}
+  </header>
+
+  <div class="post-body body">
+    {{ content }}
+  </div>
+
+  {{ if comments?.src || comments?.bluesky }}
+  <aside class="comments-section">
+    <header class="comments-header">
+      <h2>{{ site.i18n.comments.title }}</h2>
+      {{ if comments.bluesky && comments.src }}
+      <p>{{ site.i18n.comments.description_all.replace(":src:", comments.src).replace(":bluesky:", comments.bluesky) }}</p>
+      {{ else if comments.src }}
+      <p>{{ site.i18n.comments.description.replace(":src:", comments.src) }}</p>
+      {{ else }}
+      <p>{{ site.i18n.comments.description_bluesky.replace(":bluesky:", comments.bluesky) }}</p>
+      {{ /if }}
+    </header>
+    <div class="comments">{{ site.i18n.comments.empty }}</div>
+  </aside>
+  {{ /if }}
+</article>
+
+<nav class="page-pagination pagination">
+  <ul>
+    {{ if previousPost }}
+    <li class="pagination-prev">
+      <a href="{{ previousPost.url }}" rel="prev">
+        <span>{{ site.i18n.nav.previous_post }}</span>
+        <strong>{{ previousPost.data.title }}</strong>
+      </a>
+    </li>
+    {{ /if }}
+
+    {{ if nextPost }}
+    <li class="pagination-next">
+      <a href="{{ nextPost.url }}" rel="next">
+        <span>{{ site.i18n.nav.next_post }}</span>
+        <strong>{{ nextPost.data.title }}</strong>
+      </a>
+    </li>
+    {{ /if }}
+  </ul>
+</nav>
